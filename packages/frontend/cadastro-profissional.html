@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro Profissional — Bíko</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/pages/auth.css" />
+  </head>
+  <body class="auth-page">
+    <header class="header">
+      <nav class="nav container">
+        <a href="index.html" class="nav__logo" aria-label="Bíko — Home">
+          <img src="logo.svg" alt="Bíko" />
+        </a>
+      </nav>
+    </header>
+
+    <main class="auth-main">
+      <section class="auth-card auth-card--wide">
+        <h1 class="auth-card__title">Seja um Profissional Bíko</h1>
+        <p class="auth-card__subtitle">Apareça para milhares de clientes no seu bairro</p>
+
+        <div class="feedback" id="feedback" role="alert" aria-live="polite"></div>
+
+        <form class="form" id="registerProfessionalForm" novalidate>
+          <fieldset class="form__fieldset">
+            <legend>Dados Pessoais</legend>
+
+            <div class="form__group">
+              <label class="form__label" for="nome">Nome completo <abbr title="obrigatório">*</abbr></label>
+              <input class="form__input" type="text" id="nome" name="nome" placeholder="Seu nome" required />
+              <span class="form__error" id="nomeError"></span>
+            </div>
+
+            <div class="form__row">
+              <div class="form__group">
+                <label class="form__label" for="email">E-mail <abbr title="obrigatório">*</abbr></label>
+                <input class="form__input" type="email" id="email" name="email" placeholder="seu@email.com" required />
+                <span class="form__error" id="emailError"></span>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="telefone">Telefone <abbr title="obrigatório">*</abbr></label>
+                <input class="form__input" type="tel" id="telefone" name="telefone" placeholder="(11) 9 0000-0000" required />
+                <span class="form__error" id="telefoneError"></span>
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="form__group">
+                <label class="form__label" for="senha">Senha <abbr title="obrigatório">*</abbr></label>
+                <div class="form__input-wrap">
+                  <input class="form__input" type="password" id="senha" name="senha" placeholder="Mínimo 6 caracteres" required />
+                  <button type="button" class="form__toggle-password" data-target="senha" aria-label="Mostrar senha"></button>
+                </div>
+                <span class="form__error" id="senhaError"></span>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="confirmarSenha">Confirmar Senha <abbr title="obrigatório">*</abbr></label>
+                <div class="form__input-wrap">
+                  <input class="form__input" type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Repita a senha" required />
+                  <button type="button" class="form__toggle-password" data-target="confirmarSenha" aria-label="Mostrar senha"></button>
+                </div>
+                <span class="form__error" id="confirmarSenhaError"></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form__fieldset">
+            <legend>Dados Profissionais</legend>
+
+            <div class="form__row">
+              <div class="form__group">
+                <label class="form__label" for="categoria">Categoria <abbr title="obrigatório">*</abbr></label>
+                <select class="form__input form__select" id="categoria" name="categoria" required>
+                  <option value="">Selecione sua área...</option>
+                  <option value="Encanador">🔧 Encanador</option>
+                  <option value="Eletricista">⚡ Eletricista</option>
+                  <option value="Pintor">🖌️ Pintor</option>
+                  <option value="Diarista">🧹 Diarista</option>
+                  <option value="Marceneiro">🪚 Marceneiro</option>
+                  <option value="Pedreiro">🧱 Pedreiro</option>
+                  <option value="Jardineiro">🌿 Jardineiro</option>
+                  <option value="Mecânico">🔩 Mecânico</option>
+                  <option value="Serralheiro">⚙️ Serralheiro</option>
+                  <option value="Técnico em Informática">💻 Técnico em Informática</option>
+                  <option value="Costureira">🧵 Costureira</option>
+                </select>
+                <span class="form__error" id="categoriaError"></span>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="bairro">Bairro de Atuação <abbr title="obrigatório">*</abbr></label>
+                <input class="form__input" type="text" id="bairro" name="bairro" placeholder="Ex: Vila Madalena" required />
+                <span class="form__error" id="bairroError"></span>
+              </div>
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="descricao">Descrição dos seus serviços <abbr title="obrigatório">*</abbr></label>
+              <textarea
+                class="form__input form__textarea"
+                id="descricao"
+                name="descricao"
+                placeholder="Descreva sua experiência, especializações, diferenciais..."
+                rows="4"
+                required
+              ></textarea>
+              <span class="form__error" id="descricaoError"></span>
+            </div>
+          </fieldset>
+
+          <input type="hidden" name="tipo" value="profissional" />
+
+          <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+            Criar Perfil Profissional
+          </button>
+        </form>
+
+        <p class="auth-card__footer">
+          Já tem conta? <a href="login.html">Entrar</a>
+          &nbsp;|&nbsp;
+          É cliente? <a href="cadastro-cliente.html">Cadastre-se aqui</a>
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer footer--minimal">
+      <div class="container">
+        <p class="footer__copy">&copy; 2026 Bíko. Todos os direitos reservados. &nbsp;·  <a href="index.html">Voltar ao início</a></p>
+      </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/nav.js"></script>
+  </body>
+</html>

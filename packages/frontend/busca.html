@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buscar Profissionais — Bíko</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/pages/busca.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav container">
+        <a href="index.html" class="nav__logo" aria-label="Bíko — Home">
+          <img src="logo.svg" alt="Bíko" />
+        </a>
+        <ul class="nav__links">
+          <li><a href="busca.html" aria-current="page">Buscar Profissionais</a></li>
+        </ul>
+        <div class="nav__actions" id="navActions">
+          <a href="login.html" class="btn btn--ghost btn--sm">Entrar</a>
+          <a href="cadastro-cliente.html" class="btn btn--primary btn--sm">Cadastrar</a>
+        </div>
+        <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+      <div class="nav__dropdown" id="navDropdown">
+        <a href="busca.html" aria-current="page">Buscar Profissionais</a>
+        <a href="login.html">Entrar</a>
+        <a href="cadastro-cliente.html">Cadastrar</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="busca-hero">
+        <div class="container">
+          <h1>Encontre profissionais <span class="text-accent">no seu bairro</span></h1>
+
+          
+          <form class="search-form" id="searchForm" role="search">
+            <div class="search-form__fields">
+              <div class="search-form__group">
+                <label class="sr-only" for="filterCategoria">Categoria</label>
+                <select class="form__input form__select" id="filterCategoria" name="categoria">
+                  <option value="">Todas as categorias</option>
+                  <option value="Encanador">🔧 Encanador</option>
+                  <option value="Eletricista">⚡ Eletricista</option>
+                  <option value="Pintor">🖌️ Pintor</option>
+                  <option value="Diarista">🧹 Diarista</option>
+                  <option value="Marceneiro">🪚 Marceneiro</option>
+                  <option value="Pedreiro">🧱 Pedreiro</option>
+                  <option value="Jardineiro">🌿 Jardineiro</option>
+                  <option value="Mecânico">🔩 Mecânico</option>
+                  <option value="Serralheiro">⚙️ Serralheiro</option>
+                  <option value="Técnico em Informática">💻 Técnico em Informática</option>
+                </select>
+              </div>
+              <div class="search-form__group">
+                <label class="sr-only" for="filterBairro">Bairro</label>
+                <input
+                  class="form__input"
+                  type="text"
+                  id="filterBairro"
+                  name="bairro"
+                  placeholder="Bairro (ex: Pinheiros)"
+                />
+              </div>
+              <label class="filter-chip" id="verifiedChip">
+                <input type="checkbox" id="filterVerified" name="verified" />
+                <span class="filter-chip__icon">✓</span>
+                <span class="filter-chip__text">Verificados</span>
+              </label>
+              <button type="submit" class="btn btn--primary">Buscar</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      
+      <section class="section">
+        <div class="container">
+          <div class="results-header">
+            <p class="results-count" id="resultsCount">Carregando...</p>
+          </div>
+
+          
+          <div class="state-container" id="stateContainer">
+            <div class="state state--loading" id="loadingState">
+              <div class="spinner"></div>
+              <p>Buscando profissionais...</p>
+            </div>
+            <div class="state state--empty hidden" id="emptyState">
+              <p>😕 Nenhum profissional encontrado com esses filtros.</p>
+              <button class="btn btn--outline" id="clearFilters">Limpar filtros</button>
+            </div>
+            <div class="state state--error hidden" id="errorState">
+              <p>⚠️ Erro ao carregar profissionais. <button class="btn-link" id="retryBtn">Tentar novamente</button></p>
+            </div>
+          </div>
+
+          
+          <div class="professionals-grid" id="professionalsGrid"></div>
+        </div>
+      </section>
+    </main>
+
+    
+    <div class="modal-overlay hidden" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal">
+        <button class="modal__close" id="modalClose" aria-label="Fechar">&times;</button>
+        <h2 class="modal__title" id="modalTitle">Solicitar Serviço</h2>
+        <p class="modal__professional" id="modalProfessional"></p>
+
+        <div class="feedback" id="modalFeedback" role="alert" aria-live="polite"></div>
+
+        <form class="form" id="serviceRequestForm" novalidate>
+          <input type="hidden" id="professionalId" name="profissional_id" />
+          <div class="form__group">
+            <label class="form__label" for="descricaoServico">Descreva o serviço</label>
+            <textarea
+              class="form__input form__textarea"
+              id="descricaoServico"
+              name="descricao"
+              placeholder="Explique o que você precisa (mínimo 10 caracteres)..."
+              rows="5"
+              required
+            ></textarea>
+            <span class="form__error" id="descricaoServicoError"></span>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Enviar Solicitação</button>
+        </form>
+
+        <p class="auth-card__footer" id="modalLoginPrompt" style="display:none">
+          <a href="login.html">Faça login</a> para solicitar serviços.
+        </p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <a href="index.html" class="nav__logo" aria-label="Bíko" style="margin-bottom:var(--space-3);">
+          <img src="logo.svg" alt="Bíko" height="32" />
+        </a>
+        <p class="footer__copy">&copy; 2026 Bíko. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/busca.js"></script>
+    <script src="js/nav.js"></script>
+  </body>
+</html>

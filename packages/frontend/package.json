@@ -1,0 +1,12 @@
+{
+  "name": "@biko/frontend",
+  "version": "1.0.0",
+  "description": "Bíko Frontend - HTML5 + CSS Mobile-First + JS Vanilla",
+  "scripts": {
+    "dev": "npx live-server --port=5500 --open=index.html",
+    "start": "npx live-server --port=5500 --open=index.html"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 100" width="100%" height="100%">
+  <defs>
+    <!-- Paleta de Cores Oficial da Identidade Visual -->
+    <linearGradient id="azulBikoGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0f172a" />   <!-- Azul Noturno Corporativo -->
+      <stop offset="100%" stop-color="#2563eb" /> <!-- Azul Bíko Vibrante -->
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(15, 10)">
+    <!-- 
+      O SÍMBOLO (Inspirado no estilo Airbnb): 
+      Um losango geométrico que forma a letra "B" estilizada através de linhas de conexão.
+      Remete a estrutura, firmeza, segurança e carteira de trabalho assinada/verificada.
+    -->
+    <g transform="translate(5, 0)">
+      <!-- Fundo sólido geométrico -->
+      <rect x="15" y="15" width="50" height="50" rx="14" fill="url(#azulBikoGrad)" transform="rotate(45 40 40)" />
+      
+      <!-- Linhas internas que formam o "B" abstrato (Conexões de Trabalho) -->
+      <path d="M 32 25 L 32 55 M 32 25 C 44 25, 44 39, 32 39 C 46 39, 46 55, 32 55" 
+            fill="none" 
+            stroke="#ffffff" 
+            stroke-width="5" 
+            stroke-linecap="round" 
+            stroke-linejoin="round" />
+            
+      <!-- O Pequeno Lacre de Confiança da Comunidade -->
+      <circle cx="62" cy="40" r="5" fill="#eab308" />
+    </g>
+
+    <!-- 
+      TIPOGRAFIA DA MARCA (Inspirado no estilo Uber/Airbnb):
+      Usa fontes nativas de alta legibilidade (Inter/Montserrat), ultra-bold,
+      passando a seriedade de uma empresa de tecnologia consolidada.
+    -->
+    <text x="120" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Montserrat', 'Segoe UI', sans-serif" font-size="58" font-weight="900" fill="#0f172a" letter-spacing="-2">
+      Bíko
+    </text>
+
+    <!-- O acento icônico em Amarelo Alerta (Segurança/Energia do Trabalho) -->
+    <polygon points="155,14 165,8 161,18" fill="#eab308" />
+
+    <!-- TAGLINE CORPORATIVA (Alinhada à esquerda com espaçamento moderno) -->
+    <text x="122" y="82" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="11" font-weight="700" fill="#64748b" letter-spacing="4" text-transform="uppercase">
+      Trabalho Comunitário Seguro
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meu Painel — Bíko</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/pages/painel.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav container">
+        <a href="index.html" class="nav__logo" aria-label="Bíko — Home">
+          <img src="logo.svg" alt="Bíko" />
+        </a>
+        <ul class="nav__links">
+          <li><a href="painel.html" aria-current="page">Meu Painel</a></li>
+          <li><a href="busca.html">Ver Profissionais</a></li>
+        </ul>
+        <div class="nav__actions" id="navActions">
+          
+        </div>
+        <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+      <div class="nav__dropdown" id="navDropdown">
+        <a href="painel.html">Meu Painel</a>
+        <a href="busca.html">Ver Profissionais</a>
+      </div>
+    </header>
+
+    <main class="painel-layout container">
+
+      
+      <aside class="painel-sidebar">
+        <div class="profile-card" id="profileCard">
+          <div class="profile-card__avatar" id="profileAvatar">?</div>
+          <h2 class="profile-card__name" id="profileName">Carregando...</h2>
+          <p class="profile-card__category" id="profileCategory"></p>
+          <p class="profile-card__bairro" id="profileBairro"></p>
+          <div id="profileVerified"></div>
+          <div class="profile-card__rating" id="profileRating"></div>
+          <p class="profile-card__desc" id="profileDesc"></p>
+          <div class="profile-card__stats">
+            <div class="profile-stat">
+              <span class="profile-stat__value" id="statTotal">0</span>
+              <span class="profile-stat__label">Solicitações</span>
+            </div>
+            <div class="profile-stat">
+              <span class="profile-stat__value" id="statAceito">0</span>
+              <span class="profile-stat__label">Aceitas</span>
+            </div>
+            <div class="profile-stat">
+              <span class="profile-stat__value" id="statConcluido">0</span>
+              <span class="profile-stat__label">Concluídas</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      
+      <div class="painel-main">
+
+        
+        <div class="painel-panel" id="panelRequests">
+          <div class="painel-panel__header">
+            <h1 class="painel-panel__title">Solicitações de Serviço</h1>
+            <div class="painel-tabs">
+              <button class="painel-tab active" data-filter="todas">Todas</button>
+              <button class="painel-tab" data-filter="pendente">Pendentes</button>
+              <button class="painel-tab" data-filter="aceito">Aceitas</button>
+              <button class="painel-tab" data-filter="concluido">Concluídas</button>
+            </div>
+          </div>
+
+          <div class="requests-list" id="requestsList">
+            <div class="state state--loading">
+              <div class="spinner"></div>
+              <p>Carregando solicitações...</p>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="painel-panel painel-chat hidden" id="panelChat">
+          <div class="painel-panel__header">
+            <button class="chat-back" id="chatBack" aria-label="Voltar">
+              ← Voltar
+            </button>
+            <div class="chat-header-info">
+              <h2 class="painel-panel__title" id="chatTitle">Chat</h2>
+              <span class="chat-status-badge" id="chatStatusBadge"></span>
+            </div>
+            <div class="chat-actions" id="chatActions"></div>
+          </div>
+
+          
+          <div class="chat-service-context" id="chatContext"></div>
+
+          
+          <div class="chat-messages" id="chatMessages"></div>
+
+          
+          <form class="chat-input-form" id="chatInputForm">
+            <input
+              class="chat-input"
+              type="text"
+              id="chatInput"
+              placeholder="Digite uma mensagem..."
+              autocomplete="off"
+            />
+            <button type="submit" class="btn btn--primary btn--sm">Enviar</button>
+          </form>
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="footer footer--minimal">
+      <div class="container">
+        <p class="footer__copy">&copy; 2026 Bíko &nbsp;·  Painel do Profissional</p>
+      </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/painel.js"></script>
+  </body>
+</html>

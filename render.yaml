@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: biko-api
+    runtime: node
+    rootDir: packages/backend
+    buildCommand: npm install && npm run db:migrate && npm run db:seed
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: FRONTEND_URL
+        value: https://biko-app.onrender.com
+
+  - type: web
+    name: biko-app
+    runtime: static
+    rootDir: packages/frontend
+    buildCommand: echo "static site"
+    staticPublishPath: .
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Bíko - Conecte-se com profissionais verificados do seu bairro." />
+    <title>Bíko — Profissionais de Bairro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/pages/home.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav container">
+        <a href="index.html" class="nav__logo" aria-label="Bíko — Home">
+          <img src="logo.svg" alt="Bíko" />
+        </a>
+        <ul class="nav__links">
+          <li><a href="busca.html">Buscar Profissionais</a></li>
+        </ul>
+        <div class="nav__actions" id="navActions">
+          <a href="login.html" class="btn btn--ghost btn--sm">Entrar</a>
+          <a href="cadastro-cliente.html" class="btn btn--primary btn--sm">Cadastrar Grátis</a>
+        </div>
+        <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+      <div class="nav__dropdown" id="navDropdown">
+        <a href="busca.html">Buscar Profissionais</a>
+        <a href="login.html">Entrar</a>
+        <a href="cadastro-cliente.html">Cadastrar</a>
+      </div>
+    </header>
+
+    
+    <main>
+      
+      <section class="hero">
+        <div class="hero__content container">
+          <div class="hero__eyebrow">Profissionais verificados pela comunidade</div>
+          <h1 class="hero__title">
+            Profissionais do seu bairro,<br />
+            <span class="text-accent">verificados e confiáveis.</span>
+          </h1>
+          <p class="hero__subtitle">
+            O principal problema de contratar profissionais de bairro é confiança.
+            O Bíko resolve isso através de um sistema de verificação e avaliações da comunidade.
+          </p>
+          <div class="hero__actions">
+            <a href="busca.html" class="btn btn--accent btn--lg">Buscar Profissional</a>
+            <a href="cadastro-profissional.html" class="btn btn--outline btn--lg">Sou Profissional</a>
+          </div>
+          <div class="hero__stats">
+            <div class="hero__stat">
+              <span class="hero__stat-value" data-count="200" data-suffix="+">200+</span>
+              <span class="hero__stat-label">Profissionais</span>
+            </div>
+            <div class="hero__stat">
+              <span class="hero__stat-value" data-count="12" data-suffix="">12</span>
+              <span class="hero__stat-label">Categorias</span>
+            </div>
+            <div class="hero__stat">
+              <span class="hero__stat-value" data-count="4.8" data-suffix="★" data-decimals="1">4.8★</span>
+              <span class="hero__stat-label">Avaliação média</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      <section class="section" id="categorias">
+        <div class="container">
+          <h2 class="section__title">Categorias</h2>
+          <p class="section__subtitle">Encontre profissionais em dezenas de categorias</p>
+          <div class="categories-grid" id="categoriesGrid">
+            
+          </div>
+        </div>
+      </section>
+
+      
+      <section class="section section--alt">
+        <div class="container">
+          <h2 class="section__title">Como Funciona</h2>
+          <div class="steps">
+            <article class="step">
+              <div class="step__icon">🔍</div>
+              <h3>Busque</h3>
+              <p>Pesquise por categoria ou bairro e veja profissionais verificados.</p>
+            </article>
+            <article class="step">
+              <div class="step__icon">✓</div>
+              <h3>Escolha</h3>
+              <p>Veja avaliações reais da comunidade e o Selo Verificado Bíko.</p>
+            </article>
+            <article class="step">
+              <div class="step__icon">📩</div>
+              <h3>Solicite</h3>
+              <p>Envie a solicitação diretamente pelo app e aguarde a confirmação.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      
+      <section class="section">
+        <div class="container">
+          <h2 class="section__title">Em Destaque</h2>
+          <div class="professionals-grid" id="featuredProfessionals">
+            
+          </div>
+          <div class="section__cta">
+            <a href="busca.html" class="btn btn--primary">Ver Todos os Profissionais</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <div class="footer__brand">
+            <a href="index.html" class="nav__logo" aria-label="Bíko">
+              <img src="logo.svg" alt="Bíko" height="36" />
+            </a>
+            <p>Conectando pessoas a profissionais de confiança no bairro.</p>
+          </div>
+          <nav class="footer__nav">
+            <h4>Plataforma</h4>
+            <ul>
+              <li><a href="busca.html">Buscar Profissionais</a></li>
+              <li><a href="cadastro-profissional.html">Seja um Profissional</a></li>
+            </ul>
+          </nav>
+          <nav class="footer__nav">
+            <h4>Conta</h4>
+            <ul>
+              <li><a href="login.html">Entrar</a></li>
+              <li><a href="cadastro-cliente.html">Cadastrar</a></li>
+            </ul>
+          </nav>
+        </div>
+        <p class="footer__copy">&copy; 2026 Bíko. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/nav.js"></script>
+  </body>
+</html>
