@@ -1,6 +1,6 @@
 const API_BASE_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
   ? "http://localhost:3000/api"
-  : "https://biko-app.onrender.com";
+  : "https://biko-api.onrender.com/api";
 
 async function apiFetch(endpoint, options = {}) {
   const token = localStorage.getItem("biko_token");

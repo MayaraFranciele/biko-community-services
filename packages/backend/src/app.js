@@ -24,7 +24,7 @@ app.use(
 const allowedOrigins = [
   process.env.FRONTEND_URL || "http://localhost:5500",
   "http://127.0.0.1:5500",
-  "https://biko-app.onrender.com",
+  "https://biko-community-services.onrender.com",
 ];
 
 app.use(
