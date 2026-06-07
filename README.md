@@ -59,6 +59,61 @@ O Bíko resolve esse problema criando um marketplace hiperlocal que conecta mora
 
 ---
 
+## Rotas da API
+
+A API do Bíko segue o padrão REST e disponibiliza endpoints para autenticação, consulta de categorias, gerenciamento de profissionais e solicitações de serviços.
+
+### Endpoints Disponíveis
+
+| Método | Rota                               | Descrição                                                           | Autenticação |
+| ------ | ---------------------------------- | ------------------------------------------------------------------- | ------------ |
+| POST   | `/api/auth/register`               | Cadastro de clientes e profissionais                                | Não          |
+| POST   | `/api/auth/login`                  | Autenticação de usuários                                            | Não          |
+| GET    | `/api/categories`                  | Lista todas as categorias de serviços disponíveis                   | Não          |
+| GET    | `/api/professionals`               | Lista profissionais cadastrados                                     | Não          |
+| GET    | `/api/professionals/:id`           | Retorna os detalhes de um profissional específico                   | Não          |
+| POST   | `/api/service-requests`            | Cria uma nova solicitação de serviço                                | Sim (JWT)    |
+| GET    | `/api/service-requests`            | Lista as solicitações do usuário autenticado                        | Sim (JWT)    |
+| PATCH  | `/api/service-requests/:id/status` | Atualiza o status de uma solicitação de serviço                     | Sim (JWT)    |
+| GET    | `/health`                          | Endpoint para monitoramento e verificação da disponibilidade da API | Não          |
+
+### Métodos HTTP Utilizados
+
+O projeto utiliza os seguintes métodos HTTP para operações distintas:
+
+| Método | Finalidade                                                   |
+| ------ | ------------------------------------------------------------ |
+| GET    | Consulta de dados (categorias, profissionais e solicitações) |
+| POST   | Cadastro, autenticação e criação de recursos                 |
+| PATCH  | Atualização parcial de recursos existentes                   |
+
+### Fluxo Simplificado da API
+
+```text
+Cliente
+   │
+   ├── POST /api/auth/register
+   ├── POST /api/auth/login
+   │
+   ▼
+Recebe Token JWT
+   │
+   ├── GET /api/categories
+   ├── GET /api/professionals
+   │
+   ▼
+Seleciona um profissional
+   │
+   ├── POST /api/service-requests
+   │
+   ▼
+Profissional gerencia a solicitação
+   │
+   └── PATCH /api/service-requests/:id/status
+```
+
+---
+
 ## Arquitetura
 
 O Bíko foi desenvolvido utilizando uma arquitetura Monorepo, onde frontend e backend são mantidos em um único repositório. Essa abordagem facilita o gerenciamento do projeto, centraliza a documentação e simplifica o versionamento do código, mantendo uma separação clara entre as responsabilidades de cada camada da aplicação.
